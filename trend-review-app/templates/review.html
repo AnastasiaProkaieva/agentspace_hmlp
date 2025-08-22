@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Story Draft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue-light: #f0f7ff;
+            --marine-blue-dark: #0a2540;
+            --accent-blue: #67a8edff;
+            --dark-green: #1b744aff;
+            --muted-orange: #f5b179ff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --white: #ffffff;
+            --danger-light: #fff0f1;
+            --danger-dark: #a9251cff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: var(--sky-blue-light);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: var(--marine-blue-dark);
+            color: var(--white);
+        }
+
+        .card-header h1 {
+            font-size: 1.75rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        /* This is the customer image you requested */
+        .customer-avatar {
+            /* Set a max height so the logo doesn't get too big */
+            max-height: 50px; 
+            max-width: 120px; /* Also set a max width */
+
+            /* This keeps the logo's original shape (aspect ratio) */
+            width: auto;      
+            height: auto;
+
+            /* Optional: add a subtle border radius for soft corners */
+            border-radius: 6px; 
+            
+            /* A subtle border can help it stand out */
+            border: 2px solid var(--white); 
+            
+            /* Remove background color if the logo has transparency */
+            background-color: transparent;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .status-badge {
+            padding: 0.3em 0.8em;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-pending { background-color: #fff3cd; color: #664d03; }
+        .status-approved { background-color: #d1e7dd; color: #0f5132; }
+        .status-disapproved { background-color: #f8d7da; color: #58151c; }
+
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--marine-blue-dark);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        
+        .form-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 0.8em 1.75em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .approve { background-color: var(--dark-green); }
+        .disapprove { background-color: var(--muted-orange); }
+
+        .error-message {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: var(--danger-light);
+            color: var(--danger-dark);
+            border: 1px solid var(--danger-dark);
+            display: none; /* Hidden by default */
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.95em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-header">
+            <h1>Review Story Outline</h1>
+            <!-- === THIS IS THE CORRECTED PART === -->
+            <!--
+                This image now points to the logo.png file in your 'static' folder.
+                The path `/static/logo.png` works because we mounted the 'static'
+                directory in main.py.
+            -->
+            <img src="/static/ipsos.png" alt="Customer Logo" class="customer-avatar">
+        </div>
+        
+        <div class="card-body">
+            <div class="review-meta">
+                <span><strong>Review ID:</strong> {{ review_id }}</span>
+                <span class="status-badge status-{{ data.status }}">{{ data.status }}</span>
+            </div>
+            
+            <hr>
+
+            {% if data.status == 'pending' %}
+            <form id="reviewForm" action="/reviews/{{ review_id }}/decide" method="post">
+                
+                <div class="form-section">
+                    <h3>Draft Outline (Editable)</h3>
+                    <textarea name="outline" rows="8">{{ data.outline }}</textarea>
+                </div>
+
+                <div class="form-section">
+                    <label for="comment">Comment (Required for Disapproval)</label>
+                    <textarea id="comment" name="comment" rows="4" placeholder="Provide feedback or suggestions here..."></textarea>
+                    <div id="error-message" class="error-message"></div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" name="decision" value="disapproved" class="disapprove">Disapprove</button>
+                    <button type="submit" name="decision" value="approved" class="approve">Approve</button>
+                </div>
+            </form>
+            {% else %}
+                <div class="form-section">
+                    <h3>Final Outline:</h3>
+                    <pre>{{ data.outline }}</pre>
+                </div>
+                
+                {% if data.comment %}
+                <div class="form-section">
+                    <h3>Reviewer's Comment:</h3>
+                    <pre>{{ data.comment }}</pre>
+                </div>
+                {% endif %}
+                
+                <p><strong>This review has been completed.</strong></p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // This script is only needed for the active form
+        const form = document.getElementById('reviewForm');
+        
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                // `event.submitter` is the button that was clicked to submit the form
+                const decision = event.submitter.value;
+                const commentInput = document.getElementById('comment');
+                const comment = commentInput.value.trim();
+                const errorContainer = document.getElementById('error-message');
+
+                // Reset error state
+                errorContainer.style.display = 'none';
+                errorContainer.textContent = '';
+                commentInput.style.borderColor = 'var(--border-color)';
+
+
+                if (decision === 'disapproved' && comment === '') {
+                    event.preventDefault(); // Stop form submission
+                    errorContainer.textContent = 'A comment is required when you disapprove the outline.';
+                    errorContainer.style.display = 'block';
+                    commentInput.style.borderColor = 'var(--danger-dark)';
+                    commentInput.focus();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
