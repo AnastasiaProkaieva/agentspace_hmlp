@@ -13,7 +13,9 @@ There are few ways you can test your agent, the most efficient is to use `adk we
 - To attached a deployed agent to the ADK session use this command `adk web --session_db_url=agentengine://${agent_engine_id}`
 
 ## Deploy to Agent Engine 
+Use script to deploy to AgentEngine, recommended to run `local_test.py` prior to this to ensure your package will be properly serialized and all dependencies were included. Consult the documentation for any update. 
 
 ## Deploy to AgentSpace 
+Use scripts under folder scripts to deploy your custom agent from AgentEngine to Agentspace using bash scripts. You can also run CURL commands, but this is less reproducible and error prone.
 
 
